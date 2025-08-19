@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Missão 1 - Ranking</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body onload="mostrarPontuacao()">
+  <div class="container">
+    <h1 id="aluno">Parabéns!</h1>
+    <p id="pontuacao"></p>
+    <button onclick="voltar()">Voltar ao Menu</button>
+  </div>
+  <script>
+    function mostrarPontuacao() {
+      const nome = localStorage.getItem('nomeAluno') || 'Aluno';
+      const pontos = localStorage.getItem('pontos') || '0';
+      document.getElementById('aluno').textContent = 'Parabéns, ' + nome + '!';
+      document.getElementById('pontuacao').textContent = 'Pontuação final: ' + pontos + ' pontos.';
+    }
+    function voltar() {
+      window.location.href = '../../menu.html';
+    }
+  </script>
+</body>
+</html>

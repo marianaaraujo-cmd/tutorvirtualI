@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Missão 1 - Etapa 3</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Etapa 3 – Questão Contextualizada</h1>
+    <p style="text-align: justify;">
+      COMPETÊNCIA DE ÁREA 03 – Associar intervenções que resultam em degradação ou conservação ambiental a processos produtivos e sociais e a instrumentos ou ações científico-tecnológicos.
+      HABILIDADE 09 – Compreender a importância dos ciclos biogeoquímicos ou do fluxo energia para a vida, ou da ação de agentes ou fenômenos que podem causar alterações nesses processos.
+    </p>
+    <p style="text-align: justify;">
+      (Enem 2009) O ciclo da água é fundamental para a preservação do planeta. As condições climáticas da Terra permitem que a água sofra mudanças de fase, e a compreensão dessas transformações é fundamental para se entender o ciclo hidrológico. Numa dessas mudanças, a água ou a umidade da terra absorve o calor do sol e dos arredores. Quando já foi absorvido calor suficiente, algumas das moléculas do líquido podem ter energia necessária para começar a subir para a atmosfera.
+    </p>
+    <p style="text-align: left;">
+      Disponível em: http://www.keroagua.blogspot.com. Acesso em: 30 mar. 2009 (adaptado).
+    </p>
+    <p style="text-align: justify;">A transformação mencionada no texto é a:</p>
+    <button onclick="responder('errada', 'A fusão é a passagem do estado sólido para o líquido.')">🅐 fusão</button>
+    <button onclick="responder('errada', 'A liquefação é a passagem do gás para o líquido.')">🅑 liquefação</button>
+    <button onclick="responder('correta', 'Correto! A evaporação é a passagem do líquido para o gasoso.')">🅒 evaporação</button>
+    <button onclick="responder('errada', 'A solidificação é a passagem do líquido para o sólido.')">🅓 solidificação</button>
+    <button onclick="responder('errada', 'A condensação é a passagem do vapor para o líquido.')">🅔 condensação</button>
+    <p id="feedback"></p>
+    <button id="ranking" onclick="finalizar()" style="display:none;">Ver Ranking Final</button>
+  </div>
+  <script>
+    function responder(status, msg) {
+      const f = document.getElementById('feedback');
+      const b = document.getElementById('ranking');
+      if (status === 'correta') {
+        f.textContent = msg;
+        let pontos = parseInt(localStorage.getItem('pontos') || '0');
+        localStorage.setItem('pontos', pontos + 10);
+      } else {
+        f.textContent = "Incorreto. " + msg;
+      }
+      b.style.display = 'block';
+      localStorage.setItem('etapa3_completa', 'true');
+    }
+    function finalizar() {
+      window.location.href = 'ranking.html';
+    }
+  </script>
+</body>
+</html>

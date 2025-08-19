@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Missão 1 - Etapa 1</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Etapa 1 – Leitura: Mudanças de Estado Físico</h1>
+    <p>As mudanças de estados físicos da matéria são as transformações que ocorrem quando uma substância passa de um estado físico para outro, como sólido, líquido ou gasoso, devido a variações de temperatura e pressão.</p>
+    <p><strong>Tipos de mudanças de estado físico:</strong></p>
+    <p><strong>Fusão:</strong> Passagem do estado sólido para o líquido, como o derretimento do gelo.</p>
+    <p><strong>Solidificação:</strong> Passagem do estado líquido para o sólido, como a água virando gelo.</p>
+    <p><strong>Vaporização:</strong> Passagem do estado líquido para o gasoso, como a água evaporando. A vaporização pode ocorrer de três formas: evaporação (lenta e gradual), ebulição (ocorre quando a pressão de vapor do líquido iguala a pressão atmosférica) e calefação (ocorre de forma quase instantânea quando um líquido entra em contato com uma superfície muito quente).</p>
+    <p><strong>Condensação:</strong> Passagem do estado gasoso para o líquido, como o vapor d'água formando gotículas de água.</p>
+    <p><strong>Sublimação:</strong> Passagem direta do estado sólido para o gasoso, ou vice-versa, sem passar pelo estado líquido, como a naftalina.</p>
+    <p><strong>Fatores que influenciam as mudanças de estado:</strong></p>
+    <p><strong>Temperatura:</strong> A temperatura é o principal fator que determina o estado físico de uma substância. Ao aquecer uma substância, ela pode passar para um estado de maior energia (sólido → líquido → gasoso) e ao resfriar, para um estado de menor energia (gasoso → líquido → sólido).</p>
+    <p><strong>Pressão:</strong> A pressão também influencia as mudanças de estado. Por exemplo, a água ferve a temperaturas mais baixas em altitudes elevadas devido à menor pressão atmosférica.</p>
+    <p><strong>Exemplos:</strong></p>
+    <ul>
+      <li>Em um dia quente, a água do mar evapora (vaporização).</li>
+      <li>O gelo seco (dióxido de carbono sólido) sublima em temperatura ambiente, transformando-se diretamente em gás.</li>
+      <li>A água em estado líquido se transforma em gelo (solidificação) quando submetida a baixas temperaturas.</li>
+    </ul>
+    <h2>Pergunta de Verificação</h2>
+    <p>De acordo com o texto, qual dos fatores pode influenciar a mudança de um estado físico da matéria?</p>
+    <button onclick="responder(true)">a) temperatura</button>
+    <button onclick="responder(false)">b) volume</button>
+    <button onclick="responder(false)">c) massa</button>
+    <button onclick="responder(false)">d) densidade</button>
+    <p id="feedback"></p>
+    <button id="proxima" onclick="avancar()" style="display:none;">Avançar para Etapa 2</button>
+  </div>
+  <script>
+    function responder(correta) {
+      const feedback = document.getElementById('feedback');
+      const botao = document.getElementById('proxima');
+      if (correta) {
+        feedback.textContent = "Parabéns! Você acertou e ganhou 10 pontos.";
+        let pontos = parseInt(localStorage.getItem('pontos') || '0');
+        localStorage.setItem('pontos', pontos + 10);
+      } else {
+        feedback.textContent = "Resposta incorreta. A alternativa correta é: temperatura.";
+      }
+      botao.style.display = 'block';
+      localStorage.setItem('etapa1_completa', 'true');
+    }
+    function avancar() {
+      window.location.href = 'etapa2.html';
+    }
+  </script>
+</body>
+</html>
